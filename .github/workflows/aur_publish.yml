@@ -56,7 +56,7 @@ jobs:
         with:
           pkgname: oneclient
           pkgbuild: distribution/aur/oneclient/PKGBUILD
-          commit_username: ${{ secrets.AUR_USERNAME }}
+          commit_username: ${{ inputs.commit_username }}
           commit_email: ${{ secrets.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           commit_message: "oneclient ${{ needs.resolve.outputs.version }}-1"
@@ -91,7 +91,7 @@ jobs:
         with:
           pkgname: oneclient-bin
           pkgbuild: distribution/aur/oneclient-bin/PKGBUILD
-          commit_username: ${{ secrets.AUR_USERNAME }}
+          commit_username: ${{ inputs.commit_username }}
           commit_email: ${{ secrets.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           commit_message: "oneclient-bin ${{ needs.resolve.outputs.version }}-1"
