@@ -30,7 +30,7 @@ jobs:
     needs: resolve
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5 # v4.4.0
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Compute source sha256
         id: hash
@@ -56,8 +56,8 @@ jobs:
         with:
           pkgname: oneclient
           pkgbuild: distribution/aur/oneclient/PKGBUILD
-          commit_username: "dev-kiki788"
-          commit_email: "devkiki788@gmail.com"
+          commit_username: ${{ secrets.AUR_USERNAME }}
+          commit_email: ${{ secrets.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           commit_message: "oneclient ${{ needs.resolve.outputs.version }}-1"
 
@@ -65,7 +65,7 @@ jobs:
     needs: resolve
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5 # v4.4.0
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Compute deb sha256
         id: hash
@@ -91,7 +91,7 @@ jobs:
         with:
           pkgname: oneclient-bin
           pkgbuild: distribution/aur/oneclient-bin/PKGBUILD
-          commit_username: "dev-kiki788"
-          commit_email: "devkiki788@gmail.com"
+          commit_username: ${{ secrets.AUR_USERNAME }}
+          commit_email: ${{ secrets.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           commit_message: "oneclient-bin ${{ needs.resolve.outputs.version }}-1"
